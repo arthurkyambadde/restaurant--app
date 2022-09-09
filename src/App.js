@@ -1,9 +1,9 @@
-import './App.css';
+import { Header } from './components/Index';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
+    <div className="w-screen h-auto flex flex-col ">
+      <Header />
     </div>
   );
 }
