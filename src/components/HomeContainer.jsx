@@ -36,7 +36,7 @@ function HomeContainer() {
             className="ml-auto h-420 w-full lg:w-auto lg:h-650"
             alt="hero background"
           />
-          <div className=" w-full h-full absolute flex items-center justify-center  py-4 gap-4 flex-wrap ">
+          <div className=" w-full h-full absolute flex items-center justify-center lg:px-32  py-4 gap-4 flex-wrap ">
             {heroData &&
               heroData.map((item) => (
                 <div

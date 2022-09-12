@@ -64,16 +64,28 @@ function Header() {
             exit={{ opacity: 0, x: 200 }}
             className=" flex items-center gap-8  "
           >
-            <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer ">
+            <li
+              onClick={() => setIsMenu(false)}
+              className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer "
+            >
               Home
             </li>
-            <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer ">
+            <li
+              onClick={() => setIsMenu(false)}
+              className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer "
+            >
               Menu
             </li>
-            <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer ">
+            <li
+              onClick={() => setIsMenu(false)}
+              className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer "
+            >
               About Us
             </li>
-            <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer ">
+            <li
+              onClick={() => setIsMenu(false)}
+              className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer "
+            >
               Service
             </li>
           </motion.ul>
@@ -101,7 +113,10 @@ function Header() {
               >
                 {user && user.email === 'arthurkyambadde9@gmail.com' && (
                   <Link to={'/createItem'}>
-                    <p className="px-4 flex flex-row  py-2 items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out">
+                    <p
+                      onClick={() => setIsMenu(false)}
+                      className="px-4 flex flex-row  py-2 items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out"
+                    >
                       New Item <MdAdd />
                     </p>
                   </Link>
@@ -156,23 +171,38 @@ function Header() {
             >
               {user && user.email === 'arthurkyambadde9@gmail.com' && (
                 <Link to={'/createItem'}>
-                  <p className="px-4 flex flex-row  py-2 items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out">
+                  <p
+                    onClick={() => setIsMenu(false)}
+                    className="px-4 flex flex-row  py-2 items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out"
+                  >
                     New Item <MdAdd />
                   </p>
                 </Link>
               )}
 
               <ul className=" flex flex-col  ">
-                <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2">
+                <li
+                  onClick={() => setIsMenu(false)}
+                  className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                >
                   Home
                 </li>
-                <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2">
+                <li
+                  onClick={() => setIsMenu(false)}
+                  className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                >
                   Menu
                 </li>
-                <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2">
+                <li
+                  onClick={() => setIsMenu(false)}
+                  className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                >
                   About Us
                 </li>
-                <li className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2">
+                <li
+                  onClick={() => setIsMenu(false)}
+                  className=" text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                >
                   Service
                 </li>
               </ul>
