@@ -108,6 +108,8 @@ function CreateContainer() {
         clearData();
         setTimeout(() => {
           setFields(false);
+
+          setIsLoading(false);
         }, 4000);
       }
     } catch (error) {

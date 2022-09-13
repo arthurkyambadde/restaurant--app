@@ -46,7 +46,7 @@ function HomeContainer() {
                   <img
                     src={item.imageScr}
                     className="lg:w-40 w-20 lg:-mt-20 -mt-10"
-                    alt="Icecream image"
+                    alt="Icecream "
                   />
                   <p className=" lg:text-lg text-base lg:mt-4 mt-2 font-semibold text-textColor ">
                     {item.name}
