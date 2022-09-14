@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MdShoppingBasket } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
-function RowContainer({ flag, data }) {
+function RowContainer({ flag, data, scrollValue }) {
   console.log(data);
+  const rowContainer = useRef();
+
+  useEffect(() => {
+    rowContainer.current.scrollLeft += scrollValue;
+  });
 
   return (
     <div
-      className={` w-full my-12 flex items-center justify-center gap-3  p-4 rounded-lg ${
-        flag ? 'overflow-x-scroll' : 'overflow-hidden'
+      ref={rowContainer}
+      className={` w-full my-12 flex items-center justify-center gap-3  p-4 rounded-lg scroll-smooth ${
+        flag ? 'overflow-x-scroll scrollbar-none ' : 'overflow-hidden'
       } `}
     >
       {data &&
