@@ -1,10 +1,11 @@
 import React from 'react';
-import HomeContainer from './HomeContainer';
+
 import { motion } from 'framer-motion';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { MenuContainer, RowContainer } from './Index';
 import { useStateValue } from '../context/StateProvider';
 import { useState } from 'react';
+import { CartContainer, HomeContainer } from './Index';
 
 function MainContainer() {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -14,6 +15,7 @@ function MainContainer() {
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center ">
       <HomeContainer />
+
       <section className="w-full">
         <div className=" w-full flex items-center justify-between ">
           <p
@@ -46,7 +48,10 @@ function MainContainer() {
           data={foodItems?.filter((n) => n.category === 'icecreams')}
         />
       </section>
+
       <MenuContainer />
+
+      <CartContainer />
     </div>
   );
 }
