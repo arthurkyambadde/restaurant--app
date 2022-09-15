@@ -3,11 +3,30 @@ import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import { RiRefreshFill } from 'react-icons/ri';
 import { BiMinus, BiPlus } from 'react-icons/bi';
+import { useStateValue } from '../context/StateProvider';
+import { actionType } from '../context/reducer';
 
 function CartContainer() {
+  const [{ cartShow }, dispatch] = useStateValue();
+
+  const showCart = () => {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
+  };
+
   return (
-    <div className="fixed top-0 right-0 w-full md:w-375 h-screen bg-white drop-shadow-md flex flex-col z-[101]">
-      <div className="w-full flex items-center justify-between p-4 cursor-pointer">
+    <motion.div
+      initial={{ opacity: 0, x: 200 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 200 }}
+      className="fixed top-0 right-0 w-full md:w-375 h-screen bg-white drop-shadow-md flex flex-col z-[101]"
+    >
+      <div
+        onClick={showCart}
+        className="w-full flex items-center justify-between p-4 cursor-pointer"
+      >
         <motion.div whileTap={{ scale: 0.75 }}>
           <MdOutlineKeyboardBackspace className="text-textColor text-3xl" />
         </motion.div>
@@ -65,6 +84,7 @@ function CartContainer() {
             <p className="text-gray-200 text-xl font-semibold">$ 11.5</p>
           </div>
           <motion.button
+            type="button"
             whileTap={{ scale: 0.8 }}
             className=" w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg  "
           >
@@ -72,7 +92,7 @@ function CartContainer() {
           </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
