@@ -15,21 +15,21 @@ function RowContainer({ flag, data, scrollValue }) {
     <div
       ref={rowContainer}
       className={` w-full my-12 flex items-center justify-center gap-3  p-4 rounded-lg scroll-smooth ${
-        flag ? 'overflow-x-scroll scrollbar-none ' : 'overflow-hidden'
+        flag ? 'overflow-x-scroll scrollbar-none ' : 'overflow-hidden flex-wrap'
       } `}
     >
       {data &&
         data.map((item) => (
           <div
             key={item.id}
-            className="md:min-w-350 min-w-[300px] w-300  h-auto bg-gray-100 rounded-lg p-2 my-12 backdropbackdrop-blur-lg hover:drop-shadow-lg cursor-pointer bg-cardOverlay "
+            className="w-300 h-[175px] min-w-[300px] md:w-340 md:min-w-[340px] bg-cardOverlay rounded-lg p-2 my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-center "
           >
             <div className="w-full flex  items-center justify-between">
               <motion.img
                 whileHover={{ scale: 1.1 }}
-                src="https://firebasestorage.googleapis.com/v0/b/restaurantapp-3e699.appspot.com/o/Images%2F1663015197522-fi4.png?alt=media&token=4f62b477-54a2-4767-952a-f3a77c912dd5"
+                src={item?.imageUrl}
                 alt="dummy image"
-                className="w-40 -mt-2 drop-shadow-2xl"
+                className="w-20 -mt-8 drop-shadow-2xl "
               />
               <motion.div
                 whileTap={{ scale: 0.75 }}
@@ -39,11 +39,13 @@ function RowContainer({ flag, data, scrollValue }) {
               </motion.div>
             </div>
             <div className="w-full flex flex-col items-end justify-end ">
-              <p className="text-textColor font-semibold text-base md:text-lg">Fried Fish</p>
-              <p className=" mt-1 text-sm text-gray-500 "> 45 Calories </p>
+              <p className="text-textColor font-semibold text-base md:text-lg w-[50%]">
+                {item?.title}
+              </p>
+              <p className=" mt-1 text-sm text-gray-500 "> {item?.calories} Calories</p>
               <div className=" flex items-center gap-8 ">
                 <p className=" text-lg text-headingColor font-semibold ">
-                  <span className="text-sm text-red-500">$</span>5.25
+                  <span className="text-sm text-red-500">$</span> {item.price}
                 </p>
               </div>
             </div>

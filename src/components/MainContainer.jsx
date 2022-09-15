@@ -2,7 +2,7 @@ import React from 'react';
 import HomeContainer from './HomeContainer';
 import { motion } from 'framer-motion';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { RowContainer } from './Index';
+import { MenuContainer, RowContainer } from './Index';
 import { useStateValue } from '../context/StateProvider';
 import { useState } from 'react';
 
@@ -46,6 +46,7 @@ function MainContainer() {
           data={foodItems?.filter((n) => n.category === 'icecreams')}
         />
       </section>
+      <MenuContainer />
     </div>
   );
 }
