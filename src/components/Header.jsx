@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logo from '../img/logo.png';
+import Logo from '../img/logo.jpg';
 import { MdShoppingBasket, MdAdd, MdLogout } from 'react-icons/md';
 import Avatar from '../img/avatar.png';
 import { motion } from 'framer-motion';
