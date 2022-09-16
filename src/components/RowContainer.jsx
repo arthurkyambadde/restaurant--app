@@ -12,21 +12,17 @@ const RowContainer = ({ flag, data, scrollValue }) => {
 
   const [{ cartItems }, dispatch] = useStateValue();
 
-  const addtocart = () => {
-    dispatch({
-      type: actionType.SET_CARTITEMS,
-      cartItems: items,
-    });
-    localStorage.setItem("cartItems", JSON.stringify(items));
-  };
-
   useEffect(() => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
 
   useEffect(() => {
-    addtocart();
-  }, [items]);
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: items,
+    });
+    localStorage.setItem("cartItems", JSON.stringify(items));
+  }, [dispatch, items]);
 
   return (
     <div
@@ -80,7 +76,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         ))
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
-          <img src={NotFound} className="h-340" />
+          <img src={NotFound} alt="not-found" className="h-340" />
           <p className="text-xl text-headingColor font-semibold my-2">
             Items Not Available
           </p>

@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import { CreateContainer, Header, MainContainer, MenuContainer } from './components';
-import { useStateValue } from './context/StateProvider';
-import { getAllFoodItems } from './utils/firebaseFunctions';
-import { actionType } from './context/reducer';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import {
+  CreateContainer,
+  Header,
+  MainContainer,
+  MenuContainer,
+} from "./components";
+import { useStateValue } from "./context/StateProvider";
+import { getAllFoodItems } from "./utils/firebaseFunctions";
+import { actionType } from "./context/reducer";
 
 const App = () => {
-  const [{ foodItems }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {

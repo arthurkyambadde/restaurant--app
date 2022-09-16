@@ -3,7 +3,7 @@ import { BiMinus, BiPlus } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-import { fetchCart } from "../utils/fetchLocalStorageData";
+// import { fetchCart } from "../utils/fetchLocalStorageData";
 let items = [];
 
 const CartItem = ({ item, setFlag, flag }) => {
@@ -19,9 +19,9 @@ const CartItem = ({ item, setFlag, flag }) => {
   };
 
   const updateQty = (action, id) => {
-    if (action == "add") {
+    if (action === "add") {
       setQty(qty + 1);
-      cartItems.map((item) => {
+      cartItems.forEach((item) => {
         if (item.id === id) {
           item.qty += 1;
           setFlag(flag + 1);
@@ -30,13 +30,13 @@ const CartItem = ({ item, setFlag, flag }) => {
       cartDispatch();
     } else {
       // initial state value is one so you need to check if 1 then remove it
-      if (qty == 1) {
-        items = cartItems.filter((item) => item.id !== id);
+      if (qty === 1) {
+        items = cartItems.forEach((item) => item.id !== id);
         setFlag(flag + 1);
         cartDispatch();
       } else {
         setQty(qty - 1);
-        cartItems.map((item) => {
+        cartItems.forEach((item) => {
           if (item.id === id) {
             item.qty -= 1;
             setFlag(flag + 1);
@@ -49,7 +49,7 @@ const CartItem = ({ item, setFlag, flag }) => {
 
   useEffect(() => {
     items = cartItems;
-  }, [qty, items]);
+  }, [qty, cartItems]);
 
   return (
     <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">

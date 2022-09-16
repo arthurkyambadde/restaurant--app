@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Logo from '../img/logo.jpg';
-import { MdShoppingBasket, MdAdd, MdLogout } from 'react-icons/md';
-import Avatar from '../img/avatar.png';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { app } from '../firebase.config';
-import { useStateValue } from '../context/StateProvider';
-import { actionType } from '../context/reducer';
+import React, { useState } from "react";
+import Logo from "../img/logo.jpg";
+import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
+import Avatar from "../img/avatar.png";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { app } from "../firebase.config";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 
 function Header() {
   const firebaseAuth = getAuth(app);
@@ -20,7 +20,7 @@ function Header() {
   const login = async () => {
     if (!user) {
       const {
-        user: { refreshToken, providerData },
+        user: { providerData },
       } = await signInWithPopup(firebaseAuth, provider);
 
       dispatch({
@@ -28,7 +28,7 @@ function Header() {
         user: providerData[0],
       });
 
-      localStorage.setItem('user', JSON.stringify(providerData[0]));
+      localStorage.setItem("user", JSON.stringify(providerData[0]));
     } else {
       setIsMenu(!isMenu);
     }
@@ -55,7 +55,7 @@ function Header() {
     <header className=" fixed z-50 w-screen p-3 px4 md:p-6 md:px-16 bg-primary ">
       {/* desktop and Tablet */}
       <div className="hidden md:flex w-full h-full items-center justify-between ">
-        <Link to={'/'} className=" flex items-center gap-2 ">
+        <Link to={"/"} className=" flex items-center gap-2 ">
           <motion.img
             whileTap={{ scale: 0.6 }}
             src={Logo}
@@ -97,7 +97,10 @@ function Header() {
             </li>
           </motion.ul>
 
-          <div onClick={showCart} className=" relative flex items-center justify-center ">
+          <div
+            onClick={showCart}
+            className=" relative flex items-center justify-center "
+          >
             <MdShoppingBasket className=" text-textColor text-2xl  cursor-pointer " />
             <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
               <p className=" text-xs text-white font-semibold ">2</p>
@@ -118,8 +121,8 @@ function Header() {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-40 bg-gray-50 top-12 right-0  shadow-xl rounded-lg flex flex-col absolute"
               >
-                {user && user.email === 'arthurkyambadde9@gmail.com' && (
-                  <Link to={'/createItem'}>
+                {user && user.email === "arthurkyambadde9@gmail.com" && (
+                  <Link to={"/createItem"}>
                     <p
                       onClick={() => setIsMenu(false)}
                       className="px-4 flex flex-row  py-2 items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out"
@@ -143,14 +146,17 @@ function Header() {
       {/* Mobile view */}
 
       <div className="flex md:hidden w-full h-full items-center justify-between  ">
-        <div onClick={showCart} className=" relative flex items-center justify-center ">
+        <div
+          onClick={showCart}
+          className=" relative flex items-center justify-center "
+        >
           <MdShoppingBasket className=" text-textColor text-2xl  cursor-pointer " />
           <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
             <p className=" text-xs text-white font-semibold ">2</p>
           </div>
         </div>
 
-        <Link to={'/'} className=" flex items-center gap-2 ">
+        <Link to={"/"} className=" flex items-center gap-2 ">
           <motion.img
             whileTap={{ scale: 0.6 }}
             src={Logo}
@@ -176,8 +182,8 @@ function Header() {
               exit={{ opacity: 0, scale: 0.6 }}
               className="w-40 bg-gray-50 top-12 right-0  shadow-xl rounded-lg overflow-hidden flex flex-col absolute"
             >
-              {user && user.email === 'arthurkyambadde9@gmail.com' && (
-                <Link to={'/createItem'}>
+              {user && user.email === "arthurkyambadde9@gmail.com" && (
+                <Link to={"/createItem"}>
                   <p
                     onClick={() => setIsMenu(false)}
                     className="px-4 flex flex-row  py-2 items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out"

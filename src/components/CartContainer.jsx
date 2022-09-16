@@ -26,7 +26,7 @@ const CartContainer = () => {
     }, 0);
     setTot(totalPrice);
     console.log(tot);
-  }, [tot, flag]);
+  }, [tot, flag, cartItems]);
 
   const clearCart = () => {
     dispatch({
